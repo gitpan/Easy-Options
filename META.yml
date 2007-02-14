@@ -1,0 +1,11 @@
+# http://module-build.sourceforge.net/META-spec.html
+#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
+name:         Easy-Options
+version:      0.01_00
+version_from: lib/Easy/Options.pm
+installdirs:  site
+requires:
+    Easy::Log:                     .02
+
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.30
