@@ -9,7 +9,7 @@ use Exporter;
 our ( %EXPORT_TAGS, @ISA, @EXPORT_OK, @EXPORT, $VERSION );
 @ISA = qw( Exporter );
 
-$VERSION = '0.01_00';
+$VERSION = '0.01_01';
 
 %EXPORT_TAGS = (
                 usage           => [ qw( easy_options get_options optargs_missing usage) ],
@@ -51,7 +51,7 @@ sub easy_options {
     
     #    $options{options_meta}{canonical_opts} = [ map { $_ =~ /^([^|]+)/ ?   $1     : ( die "problem with canonical option list: $_" ); } sort keys %$optargs ];
     #    $log->write($all, '$options{options_meta}{canonical_opts}: ', $options{options_meta}{canonical_opts} );
-    $options{options_meta}{canonical_opts} = [ map { $_ =~ /^([^|]+)/ ? {($1, $_)} : ( die "problem with canonical option list: $_" ); } sort keys %$optargs ] ;
+    $options{options_meta}{canonical_opts} = { map { $_ =~ /^([^|]+)/ ? {($1, $_)} : ( die "problem with canonical option list: $_" ); } sort keys %$optargs } ;
     $log->write($all, '$options{options_meta}{canonical_opts}: ', $options{options_meta}{canonical_opts} );
     
     $options{options_meta}{match_string} = join('|', keys %{$options{options_meta}{canonical_opts}} );
